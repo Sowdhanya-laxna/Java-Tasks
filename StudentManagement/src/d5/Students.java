@@ -1,4 +1,11 @@
+
+Hema Priya C K Kuppuraj
+Mon, Mar 24, 12:44 PM (2 days ago)
+to me
+
 package d5;
+
+import java.io.*;
 
 import java.util.*;
 
@@ -72,9 +79,21 @@ class Student implements Comparable<Student> {
 
     }
 
+
+
     public int compareTo(Student other) {
 
         return this.name.compareTo(other.name);
+
+    }
+
+
+
+    // Convert student details to file-friendly format
+
+    public String toFileFormat() {
+
+        return id + "," + name + "," + grade;
 
     }
 
@@ -88,6 +107,16 @@ class StudentManagementSystem {
 
     private TreeSet<Student> sortedStudents = new TreeSet<>();
 
+    private final String fileName = "students.txt";
+
+
+
+    public StudentManagementSystem() {
+
+        loadStudentsFromFile();
+
+    }
+
 
 
     public void addStudent(String id, String name, String grade) {
@@ -97,6 +126,8 @@ class StudentManagementSystem {
         students.put(id, student);
 
         sortedStudents.add(student);
+
+        saveStudentsToFile();
 
     }
 
@@ -136,6 +167,8 @@ class StudentManagementSystem {
 
             sortedStudents.add(student);
 
+            saveStudentsToFile();
+
             System.out.println("Student updated successfully.");
 
         } else {
@@ -155,6 +188,8 @@ class StudentManagementSystem {
         if (student != null) {
 
             sortedStudents.remove(student);
+
+            saveStudentsToFile();
 
             System.out.println("Student removed successfully.");
 
@@ -186,6 +221,64 @@ class StudentManagementSystem {
 
     }
 
+
+
+    private void saveStudentsToFile() {
+
+        try (PrintWriter writer = new PrintWriter(new FileWriter("Samples.txt"))) {
+
+            for (Student student : students.values()) {
+
+                writer.println(student.toFileFormat());
+
+            }
+
+        } catch (IOException e) {
+
+            System.out.println("An error occurred while saving students to file.");
+
+            e.printStackTrace();
+
+        }
+
+    }
+
+
+
+    private void loadStudentsFromFile() {
+
+        File file = new File("Samples.txt");
+
+        if (file.exists()) {
+
+            try (Scanner scanner = new Scanner(file)) {
+
+                while (scanner.hasNextLine()) {
+
+                    String line = scanner.nextLine();
+
+                    String[] parts = line.split(",");
+
+                    if (parts.length == 3) {
+
+                        addStudent(parts[0], parts[1], parts[2]);
+
+                    }
+
+                }
+
+            } catch (IOException e) {
+
+                System.out.println("An error occurred while loading students from file.");
+
+                e.printStackTrace();
+
+            }
+
+        }
+
+    }
+
 }
 
 
@@ -198,11 +291,9 @@ public class Students {
 
         Scanner scanner = new Scanner(System.in);
 
-        sms.addStudent("1", "Sowdhanya", "A");
+        sms.addStudent("1", "Sowdhanya", "A"); 
 
         sms.addStudent("2", "Miruthu", "B");
-
-
 
         while (true) {
 
