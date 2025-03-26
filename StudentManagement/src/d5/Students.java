@@ -1,15 +1,6 @@
-
-Hema Priya C K Kuppuraj
-Mon, Mar 24, 12:44 PM (2 days ago)
-to me
-
 package d5;
-
 import java.io.*;
-
 import java.util.*;
-
-
 
 class Student implements Comparable<Student> {
 
