@@ -1,57 +1,41 @@
-**Student Management System**
-This project is a Student Management System developed in Java, showcasing the usage of Object-Oriented Programming (OOP) principles and Java collections like HashMap, TreeSet, and ArrayList. It allows users to efficiently manage student data with features such as adding, updating, searching, sorting, and removing students.
+Student Management System
+Description:
+This project is a Java-based Student Management System designed to manage student records. It allows adding, viewing, updating, removing, and searching for students based on their ID or name. All student details are persisted in a text file (students.txt) for future use.
 
-**Features**
-Add individual students or a list of students.
+Features:
+Add Student: Add a student's ID, name, and grade.
 
-View all students in the system.
+View All Students: View all stored student details.
 
-Search for students by their ID or name.
+Search by ID: Retrieve a student's details using their ID.
 
-Update student information (name and grade).
+Search by Name: Find all students matching a given name.
 
-Remove students by their ID.
+Update Student: Modify the name and grade of an existing student.
 
-Automatically sort students alphabetically by name.
+Remove Student: Delete a student record using their ID.
 
-Interactive menu-driven program with dynamic user input.
+File Persistence: Automatically saves and loads student records to/from the file students.txt.
 
-**Technologies Used**
-Java Programming Language
+Technologies Used:
+Java
 
-Collections Framework (HashMap, TreeSet, ArrayList)
+File Handling (using FileWriter and Scanner)
 
-Object-Oriented Programming (OOP) principles
+Data Structures (HashMap, TreeSet, and List)
 
-Command-line interface for user interaction
+Object-Oriented Programming Principles
 
-**Code Overview**
-**Classes**
-**Student:**
+Project Structure:
+Student Class: Represents a student and defines attributes and operations on student records.
 
-Represents a student with attributes id, name, and grade.
+StudentManagementSystem Class: Provides methods to manage students and ensures data persistence in the file.
 
-Implements the Comparable interface for sorting by name.
+Students Class: Contains the main() method and handles user interaction.
 
-**StudentManagementSystem:**
+File Persistence:
+Student details are stored in students.txt in a comma-separated format (ID,Name,Grade).
 
-Manages the collection of students using a HashMap (for storage) and a TreeSet (for sorting).
+File is created in the program's working directory.
 
-Provides methods for adding, updating, searching, removing, and viewing students.
 
-Features Explanation
-Add Student: Input ID, Name, and Grade to add a student to the system.
-
-**Search:**
-
-By ID: Retrieves a single student using their unique ID.
-
-By Name: Retrieves a list of students with the specified name.
-
-Update Student: Modify the Name and Grade of an existing student using their ID.
-
-Remove Student: Deletes a student based on their ID.
-
-View All Students: Displays all students in the system.
-
-Sort Students: Students are automatically sorted by name when added or updated.
